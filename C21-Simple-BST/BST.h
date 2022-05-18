@@ -68,4 +68,27 @@ public:
 		}
 
 	}
+
+	TreeNode<T>* find(T keyData)
+	{
+		TreeNode<T>* ptr = root;
+
+		while (ptr != nullptr)
+		{
+			if (ptr->data < keyData)
+			{
+				ptr = ptr->right;
+			}
+			else if (ptr->data > keyData)
+			{
+				ptr = ptr->left;
+			}
+			else if (ptr->data == keyData)
+			{
+				return ptr;
+			}
+		}
+
+		return ptr;
+	}
 };
