@@ -15,6 +15,18 @@ int main()
     t.add(35);
     t.add(42);
     t.add(8);
+
     t.preOrder();
+
+    //testing find method
+    TreeNode<int>* p = t.find(35);
+
+    if (p == nullptr)
+        cout << "Data not found\n";
+    else
+        cout << "Data found at: " << p << endl << p->toString() << endl;
+             
+    t.rowWiseTraversal();
+
 }
 

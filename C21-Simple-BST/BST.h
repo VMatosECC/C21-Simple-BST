@@ -1,5 +1,6 @@
 #pragma once
 #include "TreeNode.h"
+#include <queue>
 
 template <class T>
 class BST
@@ -22,6 +23,31 @@ public:
 		cout << ptr->toString() << endl;
 		preOrder(ptr->left);
 		preOrder(ptr->right);
+	}
+
+
+	void inOrder() { inOrder(root); }
+
+	void inOrder(TreeNode<T>* ptr)
+	{
+		if (ptr == nullptr) return;
+
+		inOrder(ptr->left);
+		cout << ptr->toString() << endl;
+		inOrder(ptr->right);
+	}
+
+
+
+	void postOrder() { postOrder(root); }
+
+	void postOrder(TreeNode<T>* ptr)
+	{
+		if (ptr == nullptr) return;
+
+		postOrder(ptr->left);
+		postOrder(ptr->right);
+		cout << ptr->toString() << endl;
 	}
 
 
@@ -67,5 +93,48 @@ public:
 			previous->right = newNode;
 		}
 
+	}
+
+	TreeNode<T>* find(T keyData)
+	{
+		TreeNode<T>* ptr = root;
+
+		while (ptr != nullptr)
+		{
+			if (ptr->data == keyData)
+				break;
+			if (ptr->data < keyData)
+				ptr = ptr->right;
+			else
+				ptr = ptr->left;
+				
+		}
+		return ptr;
+	}
+
+	void rowWiseTraversal()
+	{
+		rowWiseTraversal(root);
+	}
+
+	void rowWiseTraversal(TreeNode<T>* ptr)
+	{
+		if (ptr == nullptr)
+		{
+			cout << "Tree is empty - nothing to show\n";
+			return;
+		}
+
+		queue<TreeNode<T>*> q;		
+		q.push(ptr);
+		while (!q.empty())
+		{
+			ptr = q.front();
+			q.pop();
+			cout << ptr->data << ", ";
+			if (ptr->left != nullptr) q.push(ptr->left);
+			if (ptr->right != nullptr) q.push(ptr->right);
+		}
+		cout << endl;
 	}
 };
