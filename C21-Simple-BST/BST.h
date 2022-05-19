@@ -20,7 +20,7 @@ public:
 	{
 		if (ptr == nullptr) return;
 
-		cout << ptr->toString() << endl;
+		cout << "Preorder  " << ptr->toString() << endl;
 		preOrder(ptr->left);
 		preOrder(ptr->right);
 	}
@@ -33,7 +33,7 @@ public:
 		if (ptr == nullptr) return;
 
 		inOrder(ptr->left);
-		cout << ptr->toString() << endl;
+		cout << "Inorder   " << ptr->toString() << endl;
 		inOrder(ptr->right);
 	}
 
@@ -47,7 +47,7 @@ public:
 
 		postOrder(ptr->left);
 		postOrder(ptr->right);
-		cout << ptr->toString() << endl;
+		cout << "Postorder   " << ptr->toString() << endl;
 	}
 
 

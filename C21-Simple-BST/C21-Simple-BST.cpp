@@ -17,6 +17,8 @@ int main()
     t.add(8);
 
     t.preOrder();
+    t.postOrder();
+    t.inOrder();
 
     //testing find method
     TreeNode<int>* p = t.find(35);
